@@ -1,6 +1,9 @@
 package com.evaluationSystem.domain.result;
 
+import com.evaluationSystem.controller.AdminController;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 响应结果生成工具
@@ -19,6 +22,8 @@ public class Result<T> {
 
     private T data;
 
+    private static final Logger logger = LoggerFactory.getLogger(Result.class);
+
     /**
      * 成功
      */
@@ -26,6 +31,7 @@ public class Result<T> {
         Result<Void> result = new Result<>();
         result.setCode(ResultCode.SUCCESS.getCode());
         result.setMessage(ResultCode.SUCCESS.getMessage());
+        logger.info("success:{}",result);
         return result;
     }
 
@@ -37,6 +43,7 @@ public class Result<T> {
         result.code = ResultCode.SUCCESS.getCode();
         result.message = ResultCode.SUCCESS.getMessage();
         result.data = data;
+        logger.info("success:{}",result);
         return result;
     }
 
@@ -47,6 +54,7 @@ public class Result<T> {
         Result<Void> result = new Result<>();
         result.setCode(ResultCode.FAIL.getCode());
         result.setMessage(ResultCode.FAIL.getMessage());
+        logger.info("error:{}",result);
         return result;
     }
 
@@ -57,6 +65,7 @@ public class Result<T> {
         Result<Void> result = new Result<>();
         result.setCode(ResultCode.FAIL.getCode());
         result.setMessage(message);
+        logger.info("error:{}",result);
         return result;
     }
 
@@ -67,6 +76,7 @@ public class Result<T> {
         Result<Void> result = new Result<>();
         result.setCode(resultCode.getCode());
         result.setMessage(resultCode.getMessage());
+        logger.info("error:{}",result);
         return result;
     }
 }

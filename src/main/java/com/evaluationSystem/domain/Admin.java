@@ -25,37 +25,49 @@ public class Admin implements Serializable {
      * 账号ID
      */
     @TableField(value = "user_id")
-    private Integer user_id;
+    private String userId;
 
     /**
      * 账号名称
      */
     @TableField(value = "user_name")
-    private String user_name;
+    private String userName;
+
+    /**
+     * 密码
+     */
+    @TableField(value = "password")
+    private String password;
 
     /**
      * 账号状态，0-禁用，1-正常，默认为1
      */
     @TableField(value = "use_status")
-    private Integer use_status;
+    private Integer useStatus;
+
+    /**
+     * 权限代码
+     */
+    @TableField(value = "security_code")
+    private String securityCode;
 
     /**
      * 是否删除，0-未删除，1-删除，默认为0
      */
     @TableField(value = "is_delete")
-    private Integer is_delete;
+    private Integer isDelete;
 
     /**
      * 创建时间
      */
     @TableField(value = "gmt_create")
-    private LocalDateTime gmt_create;
+    private LocalDateTime gmtCreate;
 
     /**
      * 修改时间
      */
     @TableField(value = "gmt_modified")
-    private LocalDateTime gmt_modified;
+    private LocalDateTime gmtModified;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -73,12 +85,14 @@ public class Admin implements Serializable {
         }
         Admin other = (Admin) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUser_id() == null ? other.getUser_id() == null : this.getUser_id().equals(other.getUser_id()))
-            && (this.getUser_name() == null ? other.getUser_name() == null : this.getUser_name().equals(other.getUser_name()))
-            && (this.getUse_status() == null ? other.getUse_status() == null : this.getUse_status().equals(other.getUse_status()))
-            && (this.getIs_delete() == null ? other.getIs_delete() == null : this.getIs_delete().equals(other.getIs_delete()))
-            && (this.getGmt_create() == null ? other.getGmt_create() == null : this.getGmt_create().equals(other.getGmt_create()))
-            && (this.getGmt_modified() == null ? other.getGmt_modified() == null : this.getGmt_modified().equals(other.getGmt_modified()));
+            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getUseStatus() == null ? other.getUseStatus() == null : this.getUseStatus().equals(other.getUseStatus()))
+            && (this.getSecurityCode() == null ? other.getSecurityCode() == null : this.getSecurityCode().equals(other.getSecurityCode()))
+            && (this.getIsDelete() == null ? other.getIsDelete() == null : this.getIsDelete().equals(other.getIsDelete()))
+            && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
+            && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()));
     }
 
     @Override
@@ -86,12 +100,14 @@ public class Admin implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getUser_id() == null) ? 0 : getUser_id().hashCode());
-        result = prime * result + ((getUser_name() == null) ? 0 : getUser_name().hashCode());
-        result = prime * result + ((getUse_status() == null) ? 0 : getUse_status().hashCode());
-        result = prime * result + ((getIs_delete() == null) ? 0 : getIs_delete().hashCode());
-        result = prime * result + ((getGmt_create() == null) ? 0 : getGmt_create().hashCode());
-        result = prime * result + ((getGmt_modified() == null) ? 0 : getGmt_modified().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
+        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getUseStatus() == null) ? 0 : getUseStatus().hashCode());
+        result = prime * result + ((getSecurityCode() == null) ? 0 : getSecurityCode().hashCode());
+        result = prime * result + ((getIsDelete() == null) ? 0 : getIsDelete().hashCode());
+        result = prime * result + ((getGmtCreate() == null) ? 0 : getGmtCreate().hashCode());
+        result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         return result;
     }
 
@@ -102,12 +118,14 @@ public class Admin implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", user_id=").append(user_id);
-        sb.append(", user_name=").append(user_name);
-        sb.append(", use_status=").append(use_status);
-        sb.append(", is_delete=").append(is_delete);
-        sb.append(", gmt_create=").append(gmt_create);
-        sb.append(", gmt_modified=").append(gmt_modified);
+        sb.append(", userId=").append(userId);
+        sb.append(", userName=").append(userName);
+        sb.append(", password=").append(password);
+        sb.append(", useStatus=").append(useStatus);
+        sb.append(", securityCode=").append(securityCode);
+        sb.append(", isDelete=").append(isDelete);
+        sb.append(", gmtCreate=").append(gmtCreate);
+        sb.append(", gmtModified=").append(gmtModified);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

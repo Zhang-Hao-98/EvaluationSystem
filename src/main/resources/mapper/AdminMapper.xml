@@ -6,21 +6,25 @@
 
     <resultMap id="BaseResultMap" type="com.evaluationSystem.domain.Admin">
             <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="user_id" column="user_id" jdbcType="INTEGER"/>
-            <result property="user_name" column="user_name" jdbcType="VARCHAR"/>
-            <result property="use_status" column="use_status" jdbcType="TINYINT"/>
-            <result property="is_delete" column="is_delete" jdbcType="TINYINT"/>
-            <result property="gmt_create" column="gmt_create" jdbcType="TIMESTAMP"/>
-            <result property="gmt_modified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="useStatus" column="use_status" jdbcType="TINYINT"/>
+            <result property="securityCode" column="security_code" jdbcType="VARCHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,user_id,user_name,
-        use_status,is_delete,gmt_create,
-        gmt_modified
+        password,use_status,security_code,
+        is_delete,gmt_create,gmt_modified
     </sql>
 
-    <select id="selectByIdAndPassword" resultType="com.evaluationSystem.domain.Admin">
-        select id,user_id,user_name,use_status from evaluation_system_admin where user_id = #{user_id} and password = #{password} and is_delete = 0
+    <select id="getOneByUserId" resultType="com.evaluationSystem.domain.Admin">
+        select id,user_id,user_name,
+               password,use_status,security_code,
+               is_delete,gmt_create,gmt_modified from evaluation_system_admin where user_id=#{user_id}
     </select>
 </mapper>

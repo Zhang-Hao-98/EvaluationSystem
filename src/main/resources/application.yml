@@ -1,5 +1,7 @@
 server:
-  port: 8080
+  port: 9090
+
+
 
 spring:
   devtools:
@@ -92,6 +94,8 @@ mybatis-plus:
   configuration:
     cache-enabled: false #禁用二级缓存
     local-cache-scope: statement #一级缓存指定为statement级别
+      #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
   global-config:
     db-config:
       #      logic-delete-field: is_delete #默认deleted
